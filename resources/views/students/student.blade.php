@@ -1,4 +1,21 @@
 @extends("layouts.component")
 @section("content")
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero magni id dicta repellendus, quo suscipit repellat cupiditate quisquam mollitia dolores possimus non natus modi earum enim quae nostrum officia.
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">{{ __('Dashboard') }}</div>
+
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            {{ __('You are logged in!') }}
+        </div>
+    </div>
+</div>
+
+
 @endsection

@@ -76,7 +76,7 @@
                       </div>
                       <div class="media-body">
                         <a href="user-profile.html">
-                          <span class="title mb-0">John Doe</span>
+                          <span class="title mb-0"> {{ Auth::user()->name }}</span>
                           <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at.</span>
                           <span class="time">
                             <time>Just now</time>...
@@ -203,7 +203,7 @@
                       </div>
                       <div class="media-body">
                         <a href="user-profile.html">
-                          <span class="title mb-0">John Doe</span>
+                          <span class="title mb-0"> {{ Auth::user()->name }} </span>
                           <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid
                             at highly months do things on at.</span>
                           <span class="time">
@@ -304,7 +304,7 @@
           <li class="dropdown user-menu">
             <button class="dropdown-toggle nav-link" data-toggle="dropdown">
               <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-              <span class="d-none d-lg-inline-block">John Doe</span>
+              <span class="d-none d-lg-inline-block text-capitalize"> {{ Auth::user()->name }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
@@ -332,8 +332,13 @@
                 </a>
               </li>
 
-              <li class="dropdown-footer">
-                <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+              <li class="dropdown-footer"> 
+                <a class="dropdown-link-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <i class="mdi mdi-logout"></i> {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
               </li>
             </ul>
           </li>
